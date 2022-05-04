@@ -1,4 +1,4 @@
-const Adm = require('../models/admModel');
+const Adm = require('../modells/admModel');
 
 const AdmDAO = require('../DAO/admDAO');
 
@@ -13,7 +13,7 @@ const AdmController = (app, db) => {
     app.post('/adm', (req, res) => {
         console.log("inserindo...")
         const body = req.body;
-        const admDado = new Adm(body.tipoPlano, body.tempoContrato, body.taxaServico, body.seguroIncluso);
+        const admDado = new Adm(body.tipoPlano || body.TIPOPLANO, body.tempoContrato || body.TEMPOCONTRATO, body.taxaServico || body.TAXASERVICO, body.seguroIncluso || body.SEGUROINCLUSO);
         const data = async() => {
             try {
                 const adnServico = await admDAO.insereAdm(admDado)
@@ -55,7 +55,7 @@ const AdmController = (app, db) => {
     app.put('/adm/:id', (req, res) => {
         const body = req.body;
         const id = req.params.id;
-        const parametros = [body.tipoPlano, body.tempoContrato, body.taxaServico, body.seguroIncluso, id];
+        const parametros = [body.tipoPlano || body.TIPOPLANO, body.tempoContrato || body.TEMPOCONTRATO, body.taxaServico || body.TAXASERVICO, body.seguroIncluso || body.SEGUROINCLUSO, id];
         const data = async() => {
             try {
                 const admServicos = await admDAO.altereAdm(parametros)

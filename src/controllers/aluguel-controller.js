@@ -1,5 +1,5 @@
 const bd = require('../infra/sqlite-db');
-const Aluguel = require('../models/aluguel-model')
+const Aluguel = require('../modells/aluguel-model')
 const DaoAluguel = require('../DAO/aluguel-dao');
 const { Console } = require('console');
 
@@ -21,7 +21,7 @@ const aluguel = (app) => {
     //create no crud
     app.post('/aluguel', (req, res) => {
         const body = req.body
-        const DadosNovoAluguel = new Aluguel(body.endereco, body.valor, body.corretorid, body.alugueltipo, body.proprietarioid, body.inquilinoid)
+        const DadosNovoAluguel = new Aluguel(body.endereco || body.ENDERECO, body.valor || body.VALOR, body.corretorid || body.CORRETORID, body.alugueltipo || body.ALUGUELTIPO, body.proprietarioid || body.PROPRIETARIOID, body.inquilinoid || body.INQUILINOID)
         const data = async () => {
             try {
                 const Aluguel = await AluguelDao.insereAluguel(DadosNovoAluguel)
@@ -44,13 +44,9 @@ const aluguel = (app) => {
             }catch(err) {
                 res.send(err)
                 console.log (err)
-            }
-        
-
+            }   
         }
         data()
-
-
     })
     // delete crud
     app.delete('/aluguel/:id', (req, res) => {

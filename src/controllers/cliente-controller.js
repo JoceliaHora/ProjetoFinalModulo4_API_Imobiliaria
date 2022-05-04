@@ -8,7 +8,7 @@ const cliente = (app, bd)=>{
     app.post('/cliente', (req, res) => {
         // armazenando os dados no banco:
         const body = req.body;
-        const ClienteDado = new Cliente(body.nome, body.cpf, body.telefone, body.endereco, body.tipoDeImovel, body.condicaoDoImovel, body.email, body.senha)
+        const ClienteDado = new Cliente(body.nome || body.NOME, body.cpf || body.CPF, body.telefone || body.TELEFONE, body.endereco || body.ENDERECO, body.tipoDeImovel || body.TIPODEIMOVEL, body.condicaoDoImovel || body.CONDICAODOIMOVEL, body.email || body.EMAIL, body.senha || body.SENHA)
         const data = async() => {
             try{
                 const clientes = await DAOCliente.inserirClientes(ClienteDado)
@@ -53,10 +53,10 @@ const cliente = (app, bd)=>{
     app.put('/cliente/:id', (req, res) => {
         const body = req.body;
         const id = req.params.id;
-        const Parametros =[body.nome, body.cpf, body.telefone, body.endereco, body.tipoDeImovel, body.condicaoDoImovel, body.email, body.senha, id]
+        const Parametros =[body.nome || body.NOME, body.cpf || body.CPF, body.telefone || body.TELEFONE, body.endereco || body.ENDERECO, body.tipoDeImovel || body.TIPODEIMOVEL, body.condicaoDoImovel || body.CONDICAODOIMOVEL, body.email || body.EMAIL, body.senha || body.SENHA, id]
         const data = async() => {
             try{
-                const clientes = await DAOCliente.alterarClientes(req.params.id);
+                const clientes = await DAOCliente.alterarClientes(Parametros);
                 res.send(clientes)
             }catch(err){
                 res.send(err);
@@ -72,15 +72,23 @@ const cliente = (app, bd)=>{
         const data = async() => {
             try{
                 const clienteDado = await DAOCliente.listarClienteID(id);
-                const ClienteDado = new Cliente(body.nome || clienteDado[0].NOME, body.cpf || clienteDado[0].CPF, body.telefone || clienteDado[0].TELEFONE, 
-                    body.endereco || clienteDado[0].ENDERECO, body.tipoDeImovel || clienteDado[0].TIPODEIMOVEL, body.condicaoDoImovel || clienteDado[0].CONDICAODOIMOVEL, 
-                    body.email || clienteDado[0].EMAIL, body.senha || clienteDado[0].SENHA)
+                const ClienteDado = new Cliente(
+                    body.nome || clienteDado[0].NOME,
+                    body.cpf || clienteDado[0].CPF,
+                    body.telefone || clienteDado[0].TELEFONE, 
+                    body.endereco || clienteDado[0].ENDERECO,
+                    body.tipoDeImovel || clienteDado[0].TIPODEIMOVEL,
+                    body.condicaoDoImovel || clienteDado[0].CONDICAODOIMOVEL, 
+                    body.email || clienteDado[0].EMAIL,
+                    body.senha || clienteDado[0].SENHA)
                 const Parametros =[ClienteDado.nome, ClienteDado.cpf, ClienteDado.telefone, ClienteDado.endereco, ClienteDado.tipoDeImovel, 
                         ClienteDado.condicaoDoImovel, ClienteDado.email, ClienteDado.senha, id]
                 const clientes = await DAOCliente.alterarClientes(Parametros)
                 res.send(clientes)
+                console.log(clienteDado)
             }catch(err){
                 res.send(err)
+                console.log(err)
             }
         }
         data()

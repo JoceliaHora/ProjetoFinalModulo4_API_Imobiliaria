@@ -13,7 +13,7 @@ class Cliente{
 
     // Condições para validar cadastro:
     validarSenha(senha) {
-        if(senha.length <= 5){
+        if(senha.length >= 5){
             return senha;
         }else{
             throw new Error ("Senha deve ter 5 caracteres")
