@@ -1,5 +1,5 @@
 
-const venda = require('../models/vendasModel');
+const venda = require('../modells/vendasModel');
 const vendasDAO = require('../DAO/vendasDAO');
 
 const vendas = (app, db) => {
@@ -7,7 +7,7 @@ const vendas = (app, db) => {
     //CREATE
     app.post('/vendas', (req, res) => {
         const body = req.body;
-        const vendasDado = new venda(body.id, body.tipo, body.valor, body.endereço, body.quartos, body.banheiros, body.garagem, body.tamanho);
+        const vendasDado = new venda(body.id ||body.ID, body.tipo || body.TIPO, body.valor || body.VALOR, body.endereço || body.ENDEREÇO, body.quartos || body.QUARTOS, body.banheiros || body.BANHEIROS, body.garagem || body.GARAGEM, body.tamanho || body.TAMANHO);
         const data = async() => {
             try {
                 const vendas = await DAOvendas.insereVenda(vendasDado)
@@ -49,7 +49,7 @@ const vendas = (app, db) => {
     app.put('/vendas/:id', (req, res) => {
         const body = req.body;
         const id = req.params.id;
-        const parametros = [body.TIPO, body.VALOR, body.ENDEREÇO, body.QUARTOS, body.BANHEIROS, body.GARAGEM, body.TAMANHO, id];
+        const parametros = [body.tipo || body.TIPO, body.valor || body.VALOR, body.endereço || body.ENDEREÇO, body.quartos || body.QUARTOS, body.banheiros || body.BANHEIROS, body.garagem || body.GARAGEM, body.tamanho || body.TAMANHO, id];
         const data = async() => {
             try {
                 const vendas = await DAOvendas.altereVenda(parametros)

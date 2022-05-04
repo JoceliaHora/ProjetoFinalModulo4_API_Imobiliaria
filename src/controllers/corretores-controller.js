@@ -1,5 +1,5 @@
 const bd = require('../infra/sqlite-db');
-const Corretor = require('../models/corretores-model')
+const Corretor = require('../modells/corretores-model')
 const DaoCorretor = require('../DAO/corretores-dao')
 
 const corretores = (app) => {
@@ -13,8 +13,6 @@ const corretores = (app) => {
 
                 res.send(Corretores)
             } catch (err) {
-
-
                 res.send(err)
             }
         }
@@ -24,7 +22,7 @@ const corretores = (app) => {
     //create no crud
     app.post('/corretores', (req, res) => {
         const body = req.body
-        const DadosNovoCorretor = new Corretor(body.nome, body.email, body.senha, body.codigo, body.comicaoporvenda)
+        const DadosNovoCorretor = new Corretor(body.nome || body.NOME, body.email || body.EMAIL, body.senha || body.SENHA, body.codigo || body.CODIGO, body.comicaoporvenda || body.COMICAOPORVENDA)
         const data = async () => {
             try {
                 const Corretores = await CorretorDao.insereCorretores(DadosNovoCorretor)
@@ -46,13 +44,10 @@ const corretores = (app) => {
                 const corretores = await CorretorDao.altereCorretores(parametros)
                 res.send(corretores)
             } catch (err) {
-                res.send(err)
-                
+                res.send(err)                
             }
         }
         data()
-
-
     })
 
     // delete crud
