@@ -26,15 +26,15 @@ VALUES
 `
 
 function criaTabelaClientes() {
-    db.run(CLIENTES_SCHEMA, (error)=> {
-       if (error) console.log("Erro ao criar tabela de CLIENTES");
+    db.run(CLIENTES_SCHEMA, (error) => {
+        if (error) console.log("Erro ao criar tabela de CLIENTES");
     });
 }
 
 
 function populaTabelaClientes() {
-    db.run(ADD_CLIENTES_DATA, (error)=> {
-       if (error) console.log("Erro ao popular tabela de CLIENTES");
+    db.run(ADD_CLIENTES_DATA, (error) => {
+        if (error) console.log("Erro ao popular tabela de CLIENTES");
     });
 }
 
@@ -64,8 +64,8 @@ VALUES
 
 function criaTabelaAdm() {
     console.log("Criando tabelas ... ");
-    db.run(ADM_SCHEMA, (error)=> {
-       if (error) console.log("Erro ao criar tabela de serviços administrativos");
+    db.run(ADM_SCHEMA, (error) => {
+        if (error) console.log("Erro ao criar tabela de serviços administrativos");
     });
     console.log("Tabelas criadas.");
 }
@@ -73,8 +73,8 @@ function criaTabelaAdm() {
 
 function populaTabelaAdm() {
     console.log("Populando tabelas ... ");
-    db.run(ADD_ADM_DATA, (error)=> {
-       if (error) console.log("Erro ao popular tabela de serviços administrativos");
+    db.run(ADD_ADM_DATA, (error) => {
+        if (error) console.log("Erro ao popular tabela de serviços administrativos");
     });
     console.log("Tabelas populadas.");
 }
@@ -117,13 +117,50 @@ function populaTabelaAlg() {
     });
 }
 //FINAL CREATE POPULATE ALUGUEL
+//INICIO CREATE POPULATE CORRETOR
+const CORRETORES_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "CORRETORES" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "NOME" varchar(64),
+    "EMAIL" varchar(64),
+    "SENHA" varchar(64),
+    "CODIGO" varchar(64),
+    "COMICAOPORVENDA" varchar(64)
+    );`;
+
+const ADD_CORRETORES_DATA = `
+INSERT INTO CORRETORES (ID, NOME, EMAIL, SENHA, CODIGO, COMICAOPORVENDA)
+VALUES 
+    (1, 'Eugênio Oliveira', 'eugenio.oliveira@bol.com.br', '*******','*******',10),
+    (2, 'Olívia Ribeiro', 'olivia.ribeiro@gmail.com', '********','*******',10),
+    (3, 'Mirtes Faria Lima', 'mirtes_fl@yahoo.com', '********','*******',10),
+    (4, 'Adão Lima Duarte', 'Adão_fl@yahoo.com', '********','*******',10),
+    (5, 'Jão pepe mineiro', 'Jão_fl@yahoo.com', '********','*******',10),
+    (6, 'Moises Furtado', 'Moises_fl@yahoo.com', '********','*******',10)
+`
+
+function criaTabelaUsr() {
+    db.run(CORRETORES_SCHEMA, (error) => {
+        if (error) console.log("Erro ao criar tabela de corretores");
+    });
+}
+
+
+function populaTabelaUsr() {
+    db.run(ADD_CORRETORES_DATA, (error) => {
+        if (error) console.log(error);
+    });
+}
+//FINAL CREATE POPULATE CORRETOR
 
 // a sequencia que devem ser executadas as tabelas
-db.serialize( ()=> {
+db.serialize(() => {
     criaTabelaClientes();
     populaTabelaClientes();
     criaTabelaAdm();
     populaTabelaAdm();
     criaTabelaAlg();
     populaTabelaAlg();
+    criaTabelaUsr();
+    populaTabelaUsr();
 });

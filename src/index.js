@@ -6,6 +6,7 @@ const app = express();
 const cliente = require('./controllers/cliente-controller');
 const admController = require('./controllers/admController');
 const aluguelController = require('./controllers/aluguel-controller');
+const corretoresController = require('./controllers/corretores-controller');
 //PROXIMO
 
 
@@ -18,6 +19,7 @@ app.use(express.json());
 cliente(app, bd);
 admController(app, bd);
 aluguelController(app);
+corretoresController(app);
 //PROXIMO
 
 // Porta:
