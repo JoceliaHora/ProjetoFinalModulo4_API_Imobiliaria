@@ -5,6 +5,7 @@ const app = express();
 // Importando:
 const cliente = require('./controllers/cliente-controller');
 const admController = require('./controllers/admController');
+const aluguelController = require('./controllers/aluguel-controller');
 //PROXIMO
 
 
@@ -16,6 +17,7 @@ app.use(express.json());
 // Chamando o controller e passando o express:
 cliente(app, bd);
 admController(app, bd);
+aluguelController(app);
 //PROXIMO
 
 // Porta:
