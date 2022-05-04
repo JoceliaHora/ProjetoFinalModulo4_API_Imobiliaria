@@ -3,5 +3,5 @@
 
 
 <div align="center">
-<img src="src/view/img_imobiliaria_logo.jpeg" alt="Img_index_aqui"/>
+<img src="src/views/img_imobiliaria_logo.jpeg" alt="Img_index_aqui"/>
 </div>
