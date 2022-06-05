@@ -3,8 +3,9 @@ const Adm = require('../modells/admModel');
 const AdmDAO = require('../DAO/admDAO');
 
 const AdmController = (app, db) => {
-    app.get('/adm/teste/', (req, res) => {
+    app.get('/', (req, res) => {
         console.log("teste")
+        res.send({"status" : "Funcionando!!!"})
     })
 
 
