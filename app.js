@@ -19,17 +19,17 @@ app.get('/', (req, res) => {
 })
 
 
-// const bd = require('./src/infra/sqlite-db');
+const bd = require('./src/infra/sqlite-db');
 
-// // Body-parser:
-// app.use(express.json());
+// Body-parser:
+app.use(express.json());
 
-// // Chamando o controller e passando o express:
-// cliente(app, bd);
-// admController(app, bd);
-// aluguelController(app);
-// corretoresController(app);
-// vendas(app,bd);
+// Chamando o controller e passando o express:
+cliente(app, bd);
+admController(app, bd);
+aluguelController(app);
+corretoresController(app);
+vendas(app,bd);
 //PROXIMO
 console.log("Finalizando processo de deploy!")
 // Porta:
