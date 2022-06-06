@@ -13,17 +13,23 @@ const vendas = require('./src/controllers/vendasController');
 //PROXIMO
 
 
-const bd = require('./src/infra/sqlite-db');
+app.get('/', (req, res) => {
+    console.log("teste")
+    res.send({"status" : "Funcionando!!!"})
+})
 
-// Body-parser:
-app.use(express.json());
 
-// Chamando o controller e passando o express:
-cliente(app, bd);
-admController(app, bd);
-aluguelController(app);
-corretoresController(app);
-vendas(app,bd);
+// const bd = require('./src/infra/sqlite-db');
+
+// // Body-parser:
+// app.use(express.json());
+
+// // Chamando o controller e passando o express:
+// cliente(app, bd);
+// admController(app, bd);
+// aluguelController(app);
+// corretoresController(app);
+// vendas(app,bd);
 //PROXIMO
 console.log("Finalizando processo de deploy!")
 // Porta:
