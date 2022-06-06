@@ -27,7 +27,8 @@ vendas(app,bd);
 //PROXIMO
 console.log("Finalizando processo de deploy!")
 // Porta:
-app.listen(3000, ()=>{
-    console.log("Rodando na porta 4000");
+var porta = process.env.PORT || 8080;
+app.listen(porta, ()=>{
+    console.log("Rodando na porta " + porta);
 });
 
