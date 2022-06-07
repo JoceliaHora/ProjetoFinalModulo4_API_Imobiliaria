@@ -4,6 +4,8 @@ console.log("Iniciando processo de deploy!")
 const express = require('express');
 // Instanciando:
 const app = express();
+var cors = require('cors')
+
 // Importando:
 const cliente = require('./src/controllers/cliente-controller');
 const admController = require('./src/controllers/admController');
@@ -11,6 +13,8 @@ const aluguelController = require('./src/controllers/aluguel-controller');
 const corretoresController = require('./src/controllers/corretores-controller');
 const vendas = require('./src/controllers/vendasController');
 //PROXIMO
+
+app.use(cors())
 
 
 app.get('/', (req, res) => {
