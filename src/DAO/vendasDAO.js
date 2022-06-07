@@ -24,11 +24,13 @@ class vendasDAO {
             })
         })
     }
-    insereVenda(novaVenda){hhhhwrtrwrrgewrgghjtyjkytky
-        return new Promise((resolve, reject) => {hhh
-            this.db.run(`INSERT INTO VENDAS(ID, TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO, IMG1, IMG2, IMG3) VALUES(?, ?, ?, ?, ?, ? ,? ,?, ?, ?, ?)`,
-            [novaVenda.id, novaVenda.tipo, novaVenda.valor, novaVenda.endereço, novaVenda.quartos, novaVenda.banheiros, novaVenda.garagem, novaVenda.tamanho, novaVenda.img1, novaVenda.img2, novaVenda.img3],
+    insereVenda(novaVenda){
+        return new Promise((resolve, reject) => {
+            this.db.run(`INSERT INTO VENDAS(TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO, IMG1, IMG2, IMG3) VALUES( ?, ?, ?, ?, ? ,? ,?, ?, ?, ?)`,
+            [novaVenda.tipo, novaVenda.valor, novaVenda.endereço, novaVenda.quartos, novaVenda.banheiros, novaVenda.garagem, novaVenda.tamanho, novaVenda.img1, novaVenda.img2, novaVenda.img3],
             (error) => {
+                console.log("Deu certo")
+
                 if(error) {
                     reject(error);
                 }else {
@@ -36,6 +38,7 @@ class vendasDAO {
                 }
             })
         })
+
     }
     altereVenda(parametros){
         return new Promise((resolve, reject) => {

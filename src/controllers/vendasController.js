@@ -7,7 +7,7 @@ const vendas = (app, db) => {
     //CREATE
     app.post('/vendas', (req, res) => {
         const body = req.body;
-        const vendasDado = new venda(body.id ||body.ID, body.tipo || body.TIPO, body.valor || body.VALOR, body.endereço || body.ENDEREÇO, body.quartos || body.QUARTOS, body.banheiros || body.BANHEIROS, body.garagem || body.GARAGEM, body.tamanho || body.TAMANHO, body.img1 || body.IMG1, body.img2 || body.IMG2 , body.img3 || body.IMG3);
+        const vendasDado = new venda(body.tipo || body.TIPO, body.valor || body.VALOR, body.endereço || body.ENDEREÇO, body.quartos || body.QUARTOS, body.banheiros || body.BANHEIROS, body.garagem || body.GARAGEM, body.tamanho || body.TAMANHO, body.img1 || body.IMG1, body.img2 || body.IMG2 , body.img3 || body.IMG3);
         const data = async() => {
             try {
                 const vendas = await DAOvendas.insereVenda(vendasDado)
