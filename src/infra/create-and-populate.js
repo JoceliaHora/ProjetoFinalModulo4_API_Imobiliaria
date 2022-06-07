@@ -162,7 +162,10 @@ const vendasSchemas = `
     "QUARTOS" INT,
     "BANHEIROS" INT,
     "GARAGEM" INT,
-    "TAMANHO" VARCHAR(64)
+    "TAMANHO" VARCHAR(64),
+    "IMG1"  VARCHAR(512),
+    "IMG2" VARCHAR(512),
+    "IMG3" VARCHAR(512)
 );`;
 
 function criaTabelaVendas () {
@@ -172,7 +175,7 @@ function criaTabelaVendas () {
 }
 
 function populaTabelaVendas () {
-    db.run(`INSERT INTO VENDAS(ID, TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO) VALUES(0, 'CASA', 'R$150000,00', 'RUA MAESTRO LISBOA, 465, FORTALEZA, CE', 2, 1, 1, '48M²')`, (error) => {
+    db.run(`INSERT INTO VENDAS(ID, TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO, IMG1, IMG2, IMG3) VALUES(0, 'CASA', 'R$150000,00', 'RUA MAESTRO LISBOA, 465, FORTALEZA, CE', 2, 1, 1, '48M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Comercial.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Quarto.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/QuartoWP.jpg')`, (error) => {
         if(error) console.log('Error ao popular tabela vendas.');
     })
 }

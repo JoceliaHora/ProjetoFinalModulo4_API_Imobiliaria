@@ -24,10 +24,10 @@ class vendasDAO {
             })
         })
     }
-    insereVenda(novaVenda){
-        return new Promise((resolve, reject) => {
-            this.db.run(`INSERT INTO VENDAS(ID, TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO) VALUES(?, ?, ?, ?, ?, ? ,? ,?)`,
-            [novaVenda.id, novaVenda.tipo, novaVenda.valor, novaVenda.endereço, novaVenda.quartos, novaVenda.banheiros, novaVenda.garagem, novaVenda.tamanho],
+    insereVenda(novaVenda){hhhhwrtrwrrgewrgghjtyjkytky
+        return new Promise((resolve, reject) => {hhh
+            this.db.run(`INSERT INTO VENDAS(ID, TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO, IMG1, IMG2, IMG3) VALUES(?, ?, ?, ?, ?, ? ,? ,?, ?, ?, ?)`,
+            [novaVenda.id, novaVenda.tipo, novaVenda.valor, novaVenda.endereço, novaVenda.quartos, novaVenda.banheiros, novaVenda.garagem, novaVenda.tamanho, novaVenda.img1, novaVenda.img2, novaVenda.img3],
             (error) => {
                 if(error) {
                     reject(error);
@@ -39,7 +39,7 @@ class vendasDAO {
     }
     altereVenda(parametros){
         return new Promise((resolve, reject) => {
-            this.db.run(`UPDATE VENDAS SET TIPO = ?, VALOR = ?, ENDEREÇO = ?, QUARTOS = ?, BANHEIROS = ?, GARAGEM = ?, TAMANHO = ? WHERE ID = ?`, parametros, (error) => {
+            this.db.run(`UPDATE VENDAS SET TIPO = ?, VALOR = ?, ENDEREÇO = ?, QUARTOS = ?, BANHEIROS = ?, GARAGEM = ?, TAMANHO = ?, IMG1 = ?, IMG2 = ?, IMG3 = ? WHERE ID = ?`, parametros, (error) => {
                 if(error) {
                     reject(error);
                 }else {
