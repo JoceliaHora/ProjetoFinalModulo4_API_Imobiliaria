@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS "CORRETORES" (
 const ADD_CORRETORES_DATA = `
 INSERT INTO CORRETORES (ID, NOME, EMAIL, SENHA, CODIGO, COMICAOPORVENDA)
 VALUES 
-    (1, 'Eugênio Oliveira', 'eugenio.oliveira@bol.com.br', '*******','*******',10),
+    (1, 'Eliane Cristina', 'eugenio.oliveira@bol.com.br', '*******','*******',10),
     (2, 'Olívia Ribeiro', 'olivia.ribeiro@gmail.com', '********','*******',10),
     (3, 'Mirtes Faria Lima', 'mirtes_fl@yahoo.com', '********','*******',10),
     (4, 'Adão Lima Duarte', 'Adão_fl@yahoo.com', '********','*******',10),
