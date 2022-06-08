@@ -90,18 +90,20 @@ CREATE TABLE IF NOT EXISTS "ALUGUEL" (
     "CORRETORID" integer,
     "ALUGUELTIPO" varchar(64),
     "PROPRIETARIOID" integer,
-    "INQUILINOID" integer
+    "INQUILINOID" integer,
+    "IMG1"  VARCHAR(512),
+    "IMG2" VARCHAR(512)
   );`;
 
 const ADD_ALUGUEL_DATA = `
-INSERT INTO ALUGUEL (ID, ENDERECO, VALOR, CORRETORID, ALUGUELTIPO, PROPRIETARIOID, INQUILINOID )
+INSERT INTO ALUGUEL (ID, ENDERECO, VALOR, CORRETORID, ALUGUELTIPO, PROPRIETARIOID, INQUILINOID, IMG1, IMG2 )
 VALUES
-    (1, 'AMOROSO COSTA,349',2300, 048, 'CASA', 450, 570),
-    (2, 'MANUEL BASTOS,289',700, 049, 'SALA COMERCIAL', 200, 572),
-    (3, 'BARATA RIBEIRO,408',3200, 021, 'APARTAMENTO', 500, 300),
-    (4, 'GENERAL OSORIO,1500',4000, 020, 'APARTAMENTO', 455, 550),
-    (5, 'GENERAL ESPIRITO SANTO CARDOSO,80',1300, 001, 'CASA', 470, 490),
-    (6, 'GETULIO VARGAS,400',1600, 004, 'LOFT', 150, 580);
+    (1, 'AMOROSO COSTA,349',2300, 048, 'APARTAMENTO', 450, 570, 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/amoroso%20costa%20(aluguel)/amorosoFachada.jpg' 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/amoroso%20costa%20(aluguel)/AmorosoQuarto.jpg'),
+    (2, 'MANUEL BASTOS,289',700, 049, 'MANSÃO', 200, 572, 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/Manuel%20Bastos%20de%20Oliveira%20aluguel/ManoelFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/Manuel%20Bastos%20de%20Oliveira%20aluguel/ManuelCorporation.jpg'),
+    (3, 'BARATA RIBEIRO,408',3200, 021, 'APARTAMENTO', 500, 300, 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/Barata%20Ribeiro(Aluguel)/BarataRiFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/Barata%20Ribeiro(Aluguel)/BarataRiSala.jpg'),
+    (4, 'GENERAL OSORIO,1500',4000, 020, 'APARTAMENTO', 455, 550, 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/general%20osorio%20aluguel/OsorioFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/general%20osorio%20aluguel/OsorioCozinha.jpg2'),
+    (5, 'GENERAL ESPIRITO SANTO CARDOSO,80',1300, 001, 'CASA', 470, 490, 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/general%20espirito%20santo%20cardoso(aluguel)/GeneralFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/general%20espirito%20santo%20cardoso(aluguel)/GeneralGarden.jpg'),
+    (6, 'GETULIO VARGAS,400',1600, 004, 'LOFT', 150, 580, 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/Getulio%20Vaargas%20aluguel/GetulioFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Aluguel/Getulio%20Vaargas%20aluguel/GetulioSala.jpg');
 `
 
 function criaTabelaAlg() {
@@ -177,7 +179,7 @@ function criaTabelaVendas () {
 const ADD_VENDAS_DATA = `
  INSERT INTO VENDAS(ID, TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO, IMG1, IMG2, IMG3) VALUES
 (1, 'CASA', 'R$150000,00', 'RUA CASTELO MONALISA, 465, FORTALEZA, CE', 2, 1, 1,  '48M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/MonalisaFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/MonalisaFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/MonalisaSalaJantar.jpg'),
-(2, 'CASA', 'R$28000,00' , 'RUA CHICO LEMOS, 4005, RIO DE JANEIRO, RJ', 4, 3, 2, '100M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosQuarto.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosQuarto2.jpg'),
+(2, 'APARTAMENTO', 'R$28000,00' , 'RUA CHICO LEMOS, 4005, RIO DE JANEIRO, RJ', 4, 3, 2, '100M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosQuarto.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosQuarto2.jpg'),
 (3, 'CASA', 'R$350000,00', 'RUA MAESTRO LISBOA, 1005, RIO DE JANEIRO, RJ', 3, 2, 1, '80M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Maestro%20Lisboa%20venda/MaestroFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Maestro%20Lisboa%20venda/MaestroQuarto.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Maestro%20Lisboa%20venda/MaestroSala.jpg'),
 (4, 'CASA', 'R$110000,00', 'RUA XESQUE, 465, NATAL, RS', 2, 2, 1, '75M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Xesque%20(Venda)/SalaXesque.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Xesque%20(Venda)/XesqueFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Xesque%20(Venda)/XesqueFachada.jpg'),
 (5, 'CASA', 'R$110000,00', 'RUA BEIRA MAR, 46, RIO DE JANEIRO, RJ', 4, 5, 1, '100M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20beira%20mar/BeiraMarCozinha.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20beira%20mar/BeiraMarFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20beira%20mar/BeiraMarSalaCanto.jpg')

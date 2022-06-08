@@ -17,7 +17,7 @@ class AluguelDAO{
 
     insereAluguel(novoAluguel){
         return new Promise( (resolve,reject)=>{
-            this.bd.run(`INSERT INTO ALUGUEL (ENDERECO, VALOR, CORRETORID, ALUGUELTIPO, PROPRIETARIOID, INQUILINOID ) VALUES (?,?,?,?,?,?)`, 
+            this.bd.run(`INSERT INTO ALUGUEL (ENDERECO, VALOR, CORRETORID, ALUGUELTIPO, PROPRIETARIOID, INQUILINOID, IMG1, IMG2 ) VALUES (?,?,?,?,?,?, ?, ?)`, 
             [novoAluguel.endereco, novoAluguel.valor, novoAluguel.corretorid, novoAluguel.alugueltipo, novoAluguel.proprietarioid, novoAluguel.inquilinoid],
             (error)=>{
                 if(error){
@@ -30,7 +30,7 @@ class AluguelDAO{
     }
     altereAluguel(Parametros){
         return new Promise((resolve, reject) =>{
-            this.bd.run(`UPDATE ALUGUEL SET ENDERECO = ?, VALOR = ? , CORRETORID = ?, ALUGUELTIPO = ?, PROPRIETARIOID = ?, INQUILINOID = ?  WHERE id = ?`, Parametros ,(error)=>{
+            this.bd.run(`UPDATE ALUGUEL SET ENDERECO = ?, VALOR = ? , CORRETORID = ?, ALUGUELTIPO = ?, PROPRIETARIOID = ?, INQUILINOID = ?, IMG1 = ?, IMG2 = ?  WHERE id = ?`, Parametros ,(error)=>{
             if(error){
                 console.log(error)
                reject(error);

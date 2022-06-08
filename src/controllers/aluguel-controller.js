@@ -21,7 +21,7 @@ const aluguel = (app) => {
     //create no crud
     app.post('/aluguel', (req, res) => {
         const body = req.body
-        const DadosNovoAluguel = new Aluguel(body.endereco || body.ENDERECO, body.valor || body.VALOR, body.corretorid || body.CORRETORID, body.alugueltipo || body.ALUGUELTIPO, body.proprietarioid || body.PROPRIETARIOID, body.inquilinoid || body.INQUILINOID)
+        const DadosNovoAluguel = new Aluguel(body.endereco || body.ENDERECO, body.valor || body.VALOR, body.corretorid || body.CORRETORID, body.alugueltipo || body.ALUGUELTIPO, body.proprietarioid || body.PROPRIETARIOID, body.inquilinoid || body.INQUILINOID, body.img1 || body.IMG1, body.img2 || body.IMG2)
         const data = async () => {
             try {
                 const Aluguel = await AluguelDao.insereAluguel(DadosNovoAluguel)
@@ -36,7 +36,7 @@ const aluguel = (app) => {
     app.put('/aluguel/:id', (req, res) => {
         const body = req.body;
         const id = req.params.id
-        const parametros = [body.ENDERECO, body.VALOR, body.CORRETORESID, body.ALUGUELTIPO, body.PROPRIETARIOID, body.INQUILINOID, id]
+        const parametros = [body.ENDERECO, body.VALOR, body.CORRETORESID, body.ALUGUELTIPO, body.PROPRIETARIOID, body.IMG1, body.IMG2, body.INQUILINOID, id]
         const data = async() => {
             try {
                 const Aluguel =  await AluguelDao.altereAluguel(parametros)
