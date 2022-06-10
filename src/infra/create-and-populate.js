@@ -134,10 +134,10 @@ const ADD_CORRETORES_DATA = `
 INSERT INTO CORRETORES (ID, NOME, EMAIL, SENHA, CODIGO, COMICAOPORVENDA)
 VALUES 
     (1, 'Eliane Cristina', 'eugenio.oliveira@bol.com.br', '*******','*******',10),
-    (2, 'Olívia Ribeiro', 'olivia.ribeiro@gmail.com', '********','*******',10),
-    (3, 'Mirtes Faria Lima', 'mirtes_fl@yahoo.com', '********','*******',10),
-    (4, 'Adão Lima Duarte', 'Adão_fl@yahoo.com', '********','*******',10),
-    (5, 'Jão pepe mineiro', 'Jão_fl@yahoo.com', '********','*******',10),
+    (2, 'Jocelia Oliveira', 'joceliahora@gmail.com', '********','*******',10),
+    (3, 'Lucas Caleb', 'mirtes_fl@yahoo.com', '********','*******',10),
+    (4, 'Luciana Vivarelli', 'lucianavivarelli@hotmail.com', '********','*******',10),
+    (5, 'Raphael Victor', 'Jão_fl@yahoo.com', '********','*******',10),
     (6, 'Moises Furtado', 'Moises_fl@yahoo.com', '********','*******',10)
 `
 
@@ -178,7 +178,7 @@ function criaTabelaVendas () {
 
 const ADD_VENDAS_DATA = `
  INSERT INTO VENDAS(ID, TIPO, VALOR, ENDEREÇO, QUARTOS, BANHEIROS, GARAGEM, TAMANHO, IMG1, IMG2, IMG3) VALUES
-(1, 'CASA', 'R$150000,00', 'RUA CASTELO MONALISA, 465, FORTALEZA, CE', 2, 1, 1,  '48M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/MonalisaFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/MonalisaFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/MonalisaSalaJantar.jpg'),
+(1, 'CASA', 'R$150000,00', 'RUA CASTELO MONALISA, 465, FORTALEZA, CE', 2, 1, 1,  '48M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/MonalisaFachada.jpg', '', 'https://github.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/blob/jocelia2/imobiliaria_m5/src/assets/Vendas/Castelo%20Monalisa%20Venda/quarto_monalisa.jpg'),
 (2, 'APARTAMENTO', 'R$28000,00' , 'RUA CHICO LEMOS, 4005, RIO DE JANEIRO, RJ', 4, 3, 2, '100M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosQuarto.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Chico%20Lemos%20Vendas/LemosQuarto2.jpg'),
 (3, 'CASA', 'R$350000,00', 'RUA MAESTRO LISBOA, 1005, RIO DE JANEIRO, RJ', 3, 2, 1, '80M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Maestro%20Lisboa%20venda/MaestroFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Maestro%20Lisboa%20venda/MaestroQuarto.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Maestro%20Lisboa%20venda/MaestroSala.jpg'),
 (4, 'CASA', 'R$110000,00', 'RUA XESQUE, 465, NATAL, RS', 2, 2, 1, '75M²', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Xesque%20(Venda)/SalaXesque.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Xesque%20(Venda)/XesqueFachada.jpg', 'https://raw.githubusercontent.com/lccalebe/projetofinal-mod5-imobiliaria-resilia/master/imobiliaria_m5/src/assets/Vendas/Rua%20Xesque%20(Venda)/XesqueFachada.jpg'),
